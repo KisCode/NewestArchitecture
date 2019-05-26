@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">architecture</string>
+    <string name="title_city">城市：</string>
+    <string name="title_temperature">温度：</string>
+    <string name="title_weather">天气：</string>
+    <string name="btn_query">查 询</string>
 </resources>
