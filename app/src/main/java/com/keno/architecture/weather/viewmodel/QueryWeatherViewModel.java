@@ -12,8 +12,8 @@ public class QueryWeatherViewModel {
 
     private QueryWeatherRequest queryWeatherRequest = new QueryWeatherRequest();
 
-
     public final ObservableBoolean isLoading = new ObservableBoolean(false); //初始化
+    public final ObservableBoolean loadingSuccess = new ObservableBoolean(true); //初始化
 
     public final ObservableField<String> city = new ObservableField<>();
 
@@ -37,6 +37,7 @@ public class QueryWeatherViewModel {
             @Override
             public void loadComplete(Weather weather) {
                 isLoading.set(false);
+                loadingSuccess.set(true);
                 if (weather == null || weather.getWeatherinfo() == null) {
                     return;
                 }
@@ -50,6 +51,7 @@ public class QueryWeatherViewModel {
             @Override
             public void loadFailure(Throwable throwable) {
                 isLoading.set(false);
+                loadingSuccess.set(false);
             }
         });
     }

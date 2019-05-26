@@ -19,10 +19,8 @@ public class QueryWeatherActivity extends AppCompatActivity {
 //        setContentView(R.layout.activity_query_weather);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_query_weather);
 
-
         QueryWeatherViewModel queryWeatherViewModel = new QueryWeatherViewModel();
 
-//        ;
         binding.setWeatherViewModel(queryWeatherViewModel);
     }
 }
