@@ -85,5 +85,9 @@ public class MainActivity extends AppCompatActivity {
             String lastName = "LastName_" + Calendar.getInstance().get(Calendar.MILLISECOND);
             observableUser.setLastName(lastName);
         }
+
+        public void openDataBinding() {
+            BindUserActivity.start(MainActivity.this);
+        }
     }
 }

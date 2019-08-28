@@ -92,5 +92,16 @@
             android:textAllCaps="false"
             app:layout_constraintLeft_toRightOf="@+id/btn_update_firstname"
             app:layout_constraintTop_toBottomOf="@+id/btn_click_bind" />
+
+
+        <Button
+            android:id="@+id/btn_start_databinding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->presenter.openDataBinding()}"
+            android:text="DataBinding Activity"
+            android:textAllCaps="false"
+            app:layout_constraintLeft_toRightOf="@+id/btn_update_firstname"
+            app:layout_constraintTop_toBottomOf="@+id/btn_update_lastname" />
     </android.support.constraint.ConstraintLayout>
 </layout>
