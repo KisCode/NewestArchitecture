@@ -26,6 +26,8 @@ public class SingleBindingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.activity_single_binding);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_single_binding);
+
+        //设置绑定事件
         binding.setEvent(new EventPresenter());
 
         observableUser = new ObservableUser("单项绑定FirstName", "单项绑定LastName");
