@@ -95,13 +95,33 @@
 
 
         <Button
-            android:id="@+id/btn_start_databinding"
+        android:id="@+id/btn_start_databinding"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="@{()->presenter.openDataBinding()}"
+        android:text="DataBinding Activity"
+        android:textAllCaps="false"
+        app:layout_constraintLeft_toRightOf="@+id/btn_update_firstname"
+        app:layout_constraintTop_toBottomOf="@+id/btn_update_lastname" />
+
+        <Button
+            android:id="@+id/btn_single_databinding"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{()->presenter.openDataBinding()}"
-            android:text="DataBinding Activity"
+            android:onClick="@{()->presenter.openSingleDataBinding()}"
+            android:text="单项绑定刷新"
             android:textAllCaps="false"
             app:layout_constraintLeft_toRightOf="@+id/btn_update_firstname"
-            app:layout_constraintTop_toBottomOf="@+id/btn_update_lastname" />
+            app:layout_constraintTop_toBottomOf="@+id/btn_start_databinding" />
+
+        <Button
+            android:id="@+id/btn_double_databinding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{()->presenter.openDoubleDataBinding()}"
+            android:text="双向绑定刷新"
+            android:textAllCaps="false"
+            app:layout_constraintLeft_toRightOf="@+id/btn_update_firstname"
+            app:layout_constraintTop_toBottomOf="@+id/btn_single_databinding" />
     </android.support.constraint.ConstraintLayout>
 </layout>

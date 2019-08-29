@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.keno.architecture.R;
+import com.keno.architecture.StringUtlis;
 import com.keno.architecture.databinding.ActivityBindUserBinding;
 import com.keno.architecture.pojo.UserInfo;
 
@@ -35,14 +36,7 @@ public class BindUserActivity extends AppCompatActivity {
 
     public class EventPresenter {
         public void refrshUser() {
-            StringBuffer sb = new StringBuffer();
-            Random random = new Random();
-            int length = random.nextInt(10) + 10;
-            for (int i = 0; i < length; i++) {
-                long result = Math.round(Math.random() * 25 + 97);
-                sb.append(String.valueOf((char) result));
-            }
-            UserInfo userInfo = new UserInfo(sb.toString(), length);
+            UserInfo userInfo = new UserInfo(StringUtlis.getRandomeStr(), StringUtlis.getRandomeStr().length());
             binding.setUser(userInfo);
         }
     }

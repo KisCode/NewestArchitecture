@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.keno.architecture.binding.BindUserActivity;
+import com.keno.architecture.binding.DoubleBindingActivity;
+import com.keno.architecture.binding.SingleBindingActivity;
 import com.keno.architecture.databinding.ActivityMainBinding;
 import com.keno.architecture.pojo.ObservableUser;
 import com.keno.architecture.pojo.UserInfo;
@@ -89,6 +91,15 @@ public class MainActivity extends AppCompatActivity {
 
         public void openDataBinding() {
             BindUserActivity.start(MainActivity.this);
+        }
+
+
+        public void openSingleDataBinding() {
+            SingleBindingActivity.start(MainActivity.this);
+        }
+
+        public void openDoubleDataBinding() {
+            DoubleBindingActivity.start(MainActivity.this);
         }
     }
 }
