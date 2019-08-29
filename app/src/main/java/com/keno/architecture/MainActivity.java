@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.keno.architecture.binding.BindUserActivity;
 import com.keno.architecture.databinding.ActivityMainBinding;
 import com.keno.architecture.pojo.ObservableUser;
 import com.keno.architecture.pojo.UserInfo;

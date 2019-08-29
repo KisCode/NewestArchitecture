@@ -11,8 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".BindUserActivity"></activity>
-        <activity android:name=".weather.QueryWeatherActivity"></activity>
+        <activity android:name=".binding.SingleBindingActivity"></activity>
+        <activity android:name=".binding.BindUserActivity" />
+        <activity android:name=".weather.QueryWeatherActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

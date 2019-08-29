@@ -4,39 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
-            name="user"
-            type="com.keno.architecture.pojo.UserInfo" />
-
-
-        <!--方法的引用-->
-        <variable
-            name="eventPresenter"
-            type="com.keno.architecture.binding.BindUserActivity.EventPresenter" />
+            name="userInfo"
+            type="com.keno.architecture.pojo.ObservableUser" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".binding.BindUserActivity"
-        android:padding="@dimen/dp_8">
+        android:padding="@dimen/dp_8"
+        tools:context=".binding.SingleBindingActivity">
 
         <TextView
+            android:id="@+id/tv_first_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{user.userName}" />
+            android:text="@{userInfo.firstName}" />
 
         <TextView
+            android:id="@+id/tv_lastName_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{String.valueOf(user.age)}"/>
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="@{()->eventPresenter.refrshUser()}"
-            android:text="refresh" />
+            android:text="@{userInfo.lastName}" />
     </LinearLayout>
 </layout>
