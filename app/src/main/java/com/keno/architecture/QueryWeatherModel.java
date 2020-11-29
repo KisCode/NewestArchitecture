@@ -1,11 +1,11 @@
-package com.keno.architecture.weather.request;
+package com.keno.architecture;
 
 
 import android.os.Handler;
 import android.util.Log;
 
 import com.alibaba.fastjson.JSON;
-import com.keno.architecture.weather.model.Weather;
+import com.keno.architecture.pojo.Weather;
 
 import java.io.IOException;
 
@@ -15,10 +15,21 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class QueryWeatherRequest {
-    private static final String TAG = "QueryWeatherRequest";
+/****
+ * Description: 
+ * Author:  keno
+ * CreateDate: 2020/11/29 15:55
+ */
 
-    public void queryWeather(final OnLoadWeatherCallBack callBack) {
+public class QueryWeatherModel implements QueryWeatherContract.IModel {
+    private QueryWeatherContract.IPresenter presenter;
+
+    public QueryWeatherModel(QueryWeatherContract.IPresenter presenter) {
+        this.presenter = presenter;
+    }
+
+    @Override
+    public void requestWeather() {
         final Handler handler = new Handler();
         String url = "http://www.weather.com.cn/data/cityinfo/101010100.html";
         OkHttpClient okHttpClient = new OkHttpClient();
@@ -30,25 +41,19 @@ public class QueryWeatherRequest {
         call.enqueue(new Callback() {
             @Override
             public void onFailure(Call call, final IOException e) {
-                Log.d(TAG, "onFailure: " + e.getLocalizedMessage());
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        callBack.loadFailure(e);
-                    }
-                });
+//                Log.d(TAG, "onFailure: " + e.getLocalizedMessage());
             }
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String body = response.body().string();
-                Log.d(TAG, "onResponse: " + Thread.currentThread().getName());
-                Log.d(TAG, "onResponse: " + body);
+//                Log.d(TAG, "onResponse: " + Thread.currentThread().getName());
+                Log.d("onResponse", "onResponse: " + body);
                 final Weather weather = JSON.parseObject(body, Weather.class);
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        callBack.loadComplete(weather);
+                        presenter.responseData(Constant.CODE_SUCCESS, weather);
                     }
                 });
             }

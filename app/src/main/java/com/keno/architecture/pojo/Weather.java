@@ -1,4 +1,4 @@
-package com.keno.architecture.weather.model;
+package com.keno.architecture.pojo;
 
 public class Weather {
 
