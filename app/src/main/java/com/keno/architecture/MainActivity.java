@@ -1,5 +1,6 @@
 package com.keno.architecture;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +15,8 @@ import com.keno.architecture.binding.SingleBindingActivity;
 import com.keno.architecture.databinding.ActivityMainBinding;
 import com.keno.architecture.pojo.ObservableUser;
 import com.keno.architecture.pojo.UserInfo;
+import com.keno.architecture.weather.QueryWeatherActivity;
+import com.keno.architecture.weather.TestBroadCasterViewActivity;
 
 import java.util.Calendar;
 import java.util.Random;
@@ -61,7 +64,8 @@ public class MainActivity extends AppCompatActivity {
 
     public class MyEventHandler {
         public void onClickButton(View view) {
-            Toast.makeText(MainActivity.this, "onClickButton", Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity.this, "onClickButton ", Toast.LENGTH_LONG).show();
+            startActivity(new Intent(MainActivity.this, TestBroadCasterViewActivity.class));
         }
 
         public boolean onLongClickButton(View view) {
@@ -100,6 +104,10 @@ public class MainActivity extends AppCompatActivity {
 
         public void openDoubleDataBinding() {
             DoubleBindingActivity.start(MainActivity.this);
+        }
+
+        public void openQueryWeather() {
+            startActivity(new Intent(MainActivity.this, QueryWeatherActivity.class));
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.keno.architecture.weather.viewmodel;
 
+import android.app.AlertDialog;
 import android.databinding.ObservableBoolean;
 import android.databinding.ObservableField;
 
@@ -32,6 +33,8 @@ public class QueryWeatherViewModel {
         weatherInfo.set("");
         tem1.set("");
         tem2.set("");
+
+
 
         queryWeatherRequest.queryWeather(new OnLoadWeatherCallBack() {
             @Override
