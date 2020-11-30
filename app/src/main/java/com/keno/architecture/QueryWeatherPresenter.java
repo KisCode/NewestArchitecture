@@ -23,6 +23,17 @@ public class QueryWeatherPresenter implements QueryWeatherContract.IPresenter {
     public void requestWeather() {
         view.showLoading();
         model.requestWeather();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(60*1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
 
     @Override
