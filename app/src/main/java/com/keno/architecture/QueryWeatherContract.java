@@ -15,6 +15,8 @@ public interface QueryWeatherContract {
         void requestWeather();
 
         void responseData(int code, Weather weather);
+
+        void unBind();
     }
 
     interface IView {

@@ -9,6 +9,11 @@ import android.widget.TextView;
 
 import com.keno.architecture.pojo.Weather;
 
+/**
+ * Description: 未封装的mvp使用Demo
+ * Author: KENO
+ * Date : 2020/11/30 7:03
+ **/
 public class QueryWeatherActivity extends AppCompatActivity implements QueryWeatherContract.IView, View.OnClickListener {
 
     QueryWeatherContract.IPresenter presenter;
@@ -31,19 +36,16 @@ public class QueryWeatherActivity extends AppCompatActivity implements QueryWeat
     }
 
     @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        presenter.unBind();
+    }
+
+    @Override
     public void onClick(View v) {
         if (v.getId() == R.id.btn_query_weather) {
             presenter.requestWeather();
         }
-    }
-
-
-    @Override
-    public void showData(Weather weather) {
-        tvWeatherCity.setText(weather.getWeatherinfo().getCity());
-        tvWeatherTempLow.setText(weather.getWeatherinfo().getTemp1());
-        tvWeatherTemHeight.setText(weather.getWeatherinfo().getTemp2());
-        tvWeatherInfo.setText(weather.getWeatherinfo().getWeather());
     }
 
     @Override
@@ -55,15 +57,23 @@ public class QueryWeatherActivity extends AppCompatActivity implements QueryWeat
     }
 
     @Override
-    public void dismissLoadding() {
-        pbarLoading.setVisibility(View.GONE);
-        tvErroInfo.setVisibility(View.GONE);
-    }
-
-    @Override
     public void showErro(int code) {
         tvErroInfo.setVisibility(View.VISIBLE);
         tvErroInfo.setText("load erro,please retry");
+    }
+
+    @Override
+    public void showData(Weather weather) {
+        tvWeatherCity.setText(weather.getWeatherinfo().getCity());
+        tvWeatherTempLow.setText(weather.getWeatherinfo().getTemp1());
+        tvWeatherTemHeight.setText(weather.getWeatherinfo().getTemp2());
+        tvWeatherInfo.setText(weather.getWeatherinfo().getWeather());
+    }
+
+    @Override
+    public void dismissLoadding() {
+        pbarLoading.setVisibility(View.GONE);
+        tvErroInfo.setVisibility(View.GONE);
     }
 
     private void initView() {
